@@ -3,7 +3,7 @@ package com.xuexiang.xuidemo.activity;
 import android.app.Activity;
 
 import com.xuexiang.xui.widget.activity.BaseGuideActivity;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import java.util.List;
 public class UserGuideActivity extends BaseGuideActivity {
     @Override
     protected List<Object> getGuideResourceList() {
-        return DemoDataProvider.getUserGuides();
+        return Provider.getUserGuides();
     }
 
     @Override

@@ -19,7 +19,7 @@ package com.xuexiang.xuidemo.fragment.components.banner;
 
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.widget.banner.recycler.BannerLayout;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.RecyclerViewBannerAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -58,8 +58,8 @@ public class RecyclerViewBannerFragment extends BaseFragment implements BannerLa
      */
     @Override
     protected void initViews() {
-        blHorizontal.setAdapter(mAdapterHorizontal = new RecyclerViewBannerAdapter(DemoDataProvider.urls));
-        blVertical.setAdapter(mAdapterVertical = new RecyclerViewBannerAdapter(DemoDataProvider.urls));
+        blHorizontal.setAdapter(mAdapterHorizontal = new RecyclerViewBannerAdapter(Provider.urls));
+        blVertical.setAdapter(mAdapterVertical = new RecyclerViewBannerAdapter(Provider.urls));
     }
 
     @Override

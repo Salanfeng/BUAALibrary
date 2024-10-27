@@ -38,7 +38,7 @@ import com.xuexiang.xui.widget.actionbar.TitleBar;
 import com.xuexiang.xui.widget.banner.widget.banner.SimpleImageBanner;
 import com.xuexiang.xui.widget.imageview.ImageLoader;
 import com.xuexiang.xui.widget.imageview.RadiusImageView;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.base.delegate.SimpleDelegateAdapter;
 import com.xuexiang.xuidemo.adapter.base.delegate.SingleDelegateAdapter;
@@ -96,7 +96,7 @@ public class VLayoutFragment extends BaseFragment {
             @Override
             public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
                 SimpleImageBanner banner = holder.findViewById(R.id.sib_simple_usage);
-                banner.setSource(DemoDataProvider.getBannerList())
+                banner.setSource(Provider.getBannerList())
                         .setOnItemClickListener((view, item, position1) -> XToastUtils.toast("headBanner position--->" + position1)).startScroll();
             }
         };
@@ -106,7 +106,7 @@ public class VLayoutFragment extends BaseFragment {
         gridLayoutHelper.setPadding(0, 16, 0, 0);
         gridLayoutHelper.setVGap(10);
         gridLayoutHelper.setHGap(0);
-        SimpleDelegateAdapter<AdapterItem> commonAdapter = new SimpleDelegateAdapter<AdapterItem>(R.layout.adapter_common_grid_item, gridLayoutHelper, DemoDataProvider.getGridItems(getContext())) {
+        SimpleDelegateAdapter<AdapterItem> commonAdapter = new SimpleDelegateAdapter<AdapterItem>(R.layout.adapter_common_grid_item, gridLayoutHelper, Provider.getGridItems(getContext())) {
             @Override
             protected void bindData(@NonNull RecyclerViewHolder holder, int position, AdapterItem item) {
                 if (item != null) {
@@ -186,13 +186,13 @@ public class VLayoutFragment extends BaseFragment {
     protected void initListeners() {
         //下拉刷新
         refreshLayout.setOnRefreshListener(refreshLayout -> refreshLayout.getLayout().postDelayed(() -> {
-            mNewsAdapter.refresh(DemoDataProvider.getDemoNewInfos());
+            mNewsAdapter.refresh(Provider.getDemoNewInfos());
             mDelegateAdapter.setAdapters(mAdapters);
             refreshLayout.finishRefresh();
         }, 1000));
         //上拉加载
         refreshLayout.setOnLoadMoreListener(refreshLayout -> refreshLayout.getLayout().postDelayed(() -> {
-            mNewsAdapter.loadMore(DemoDataProvider.getDemoNewInfos());
+            mNewsAdapter.loadMore(Provider.getDemoNewInfos());
             refreshLayout.finishLoadMore();
         }, 1000));
         refreshLayout.autoRefresh();//第一次进入触发自动刷新，演示效果

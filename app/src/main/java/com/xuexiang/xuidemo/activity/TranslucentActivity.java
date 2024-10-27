@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.xuexiang.xui.utils.StatusBarUtils;
 import com.xuexiang.xui.widget.banner.widget.banner.SimpleImageBanner;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xui.utils.XToastUtils;
 
@@ -33,7 +33,7 @@ public class TranslucentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_translucent);
         ButterKnife.bind(this);
 
-        sibSimpleUsage.setSource(DemoDataProvider.getBannerList())
+        sibSimpleUsage.setSource(Provider.getBannerList())
                 .setOnItemClickListener((view, item, position) -> XToastUtils.toast("headBanner position--->" + position)).startScroll();
 
     }

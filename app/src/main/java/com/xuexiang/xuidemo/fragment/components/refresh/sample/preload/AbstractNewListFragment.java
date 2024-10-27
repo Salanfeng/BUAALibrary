@@ -25,7 +25,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.xuexiang.xui.adapter.recyclerview.BaseRecyclerAdapter;
 import com.xuexiang.xui.utils.WidgetUtils;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.entity.NewInfo;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -64,7 +64,7 @@ public abstract class AbstractNewListFragment extends BaseFragment {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 refreshLayout.getLayout().postDelayed(() -> {
-                    mAdapter.refresh(DemoDataProvider.getRefreshDemoNewInfos());
+                    mAdapter.refresh(Provider.getRefreshDemoNewInfos());
                     refreshLayout.finishRefresh();
                 }, 1000);
 
@@ -73,7 +73,7 @@ public abstract class AbstractNewListFragment extends BaseFragment {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 refreshLayout.getLayout().postDelayed(() -> {
-                    mAdapter.loadMore(DemoDataProvider.getRefreshDemoNewInfos());
+                    mAdapter.loadMore(Provider.getRefreshDemoNewInfos());
                     refreshLayout.finishLoadMore();
                 }, 1000);
 

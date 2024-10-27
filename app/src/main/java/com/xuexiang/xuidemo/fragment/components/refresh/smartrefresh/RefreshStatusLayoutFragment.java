@@ -23,7 +23,7 @@ import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.ViewUtils;
 import com.xuexiang.xui.utils.WidgetUtils;
 import com.xuexiang.xui.widget.statelayout.StatefulLayout;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.SimpleRecyclerAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -70,7 +70,7 @@ public class RefreshStatusLayoutFragment extends BaseFragment {
             Status status = getRefreshStatus();
             switch (status) {
                 case SUCCESS:
-                    mAdapter.refresh(DemoDataProvider.getDemoData());
+                    mAdapter.refresh(Provider.getDemoData());
                     mRefreshLayout.resetNoMoreData();//setNoMoreData(false);
                     mLlStateful.showContent();
                     mRefreshLayout.setEnableLoadMore(true);
@@ -97,7 +97,7 @@ public class RefreshStatusLayoutFragment extends BaseFragment {
                 XToastUtils.toast("数据全部加载完毕");
                 refreshLayout.finishLoadMoreWithNoMoreData();//将不会再次触发加载更多事件
             } else {
-                mAdapter.loadMore(DemoDataProvider.getDemoData());
+                mAdapter.loadMore(Provider.getDemoData());
                 refreshLayout.finishLoadMore();
             }
         }, 2000));

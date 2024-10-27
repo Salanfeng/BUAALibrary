@@ -28,7 +28,7 @@ import com.xuexiang.xui.adapter.recyclerview.sticky.StickyHeadContainer;
 import com.xuexiang.xui.adapter.recyclerview.sticky.StickyItemDecoration;
 import com.xuexiang.xui.utils.WidgetUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.StickyListAdapter;
 import com.xuexiang.xuidemo.adapter.entity.StickyItem;
@@ -87,7 +87,7 @@ public class StickyItemDecorationFragment extends BaseFragment {
         recyclerView.addItemDecoration(stickyItemDecoration);
         recyclerView.setAdapter(mAdapter = new StickyListAdapter());
 
-        mAdapter.refresh(DemoDataProvider.getStickyDemoData());
+        mAdapter.refresh(Provider.getStickyDemoData());
     }
 
     @Override

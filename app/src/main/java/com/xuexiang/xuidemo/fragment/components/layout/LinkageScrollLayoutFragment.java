@@ -25,7 +25,7 @@ import com.xuexiang.xui.utils.WidgetUtils;
 import com.xuexiang.xui.widget.banner.widget.banner.SimpleImageBanner;
 import com.xuexiang.xui.widget.layout.linkage.LinkageScrollLayout;
 import com.xuexiang.xui.widget.layout.linkage.view.LinkageRecyclerView;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.CommonGridAdapter;
 import com.xuexiang.xuidemo.adapter.NewsCardViewListAdapter;
@@ -63,26 +63,26 @@ public class LinkageScrollLayoutFragment extends BaseFragment {
 
     @Override
     protected void initViews() {
-        sibSimpleUsage.setSource(DemoDataProvider.getBannerList())
+        sibSimpleUsage.setSource(Provider.getBannerList())
                 .setOnItemClickListener((view, item, position) -> XToastUtils.toast("headBanner position--->" + position)).startScroll();
         WidgetUtils.initRecyclerView(recyclerView, 0);
         recyclerView.setAdapter(mNewsListAdapter = new NewsCardViewListAdapter());
 
         WidgetUtils.initGridRecyclerView(recyclerHead, 4, 0);
         recyclerHead.setAdapter(mGridAdapter = new CommonGridAdapter(true));
-        mGridAdapter.refresh(DemoDataProvider.getGridItems(getContext()));
+        mGridAdapter.refresh(Provider.getGridItems(getContext()));
     }
 
     @Override
     protected void initListeners() {
         //下拉刷新
         refreshLayout.setOnRefreshListener(refreshLayout -> refreshLayout.getLayout().postDelayed(() -> {
-            mNewsListAdapter.refresh(DemoDataProvider.getDemoNewInfos());
+            mNewsListAdapter.refresh(Provider.getDemoNewInfos());
             refreshLayout.finishRefresh();
         }, 1000));
         //上拉加载
         refreshLayout.setOnLoadMoreListener(refreshLayout -> refreshLayout.getLayout().postDelayed(() -> {
-            mNewsListAdapter.loadMore(DemoDataProvider.getDemoNewInfos());
+            mNewsListAdapter.loadMore(Provider.getDemoNewInfos());
             refreshLayout.finishLoadMore();
         }, 1000));
         refreshLayout.autoRefresh();//第一次进入触发自动刷新，演示效果

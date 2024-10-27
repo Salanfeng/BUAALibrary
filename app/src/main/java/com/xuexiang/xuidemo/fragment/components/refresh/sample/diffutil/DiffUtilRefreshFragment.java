@@ -28,7 +28,7 @@ import com.xuexiang.rxutil2.rxjava.RxJavaUtils;
 import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.NewsCardViewListAdapter;
 import com.xuexiang.xuidemo.adapter.entity.NewInfo;
@@ -149,7 +149,7 @@ public class DiffUtilRefreshFragment extends BaseFragment {
 
     private void loadData() {
         swipeRefreshLayout.postDelayed(() -> {
-            mAdapter.refresh(DemoDataProvider.getDemoNewInfos());
+            mAdapter.refresh(Provider.getDemoNewInfos());
             if (swipeRefreshLayout != null) {
                 swipeRefreshLayout.setRefreshing(false);
             }

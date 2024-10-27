@@ -30,7 +30,7 @@ import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.adapter.recyclerview.XLinearLayoutManager;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.NewsCardViewListAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -105,7 +105,7 @@ public class ComplexCalendarFragment extends BaseFragment implements CalendarVie
 
         NewsCardViewListAdapter mAdapter;
         recyclerView.setAdapter(mAdapter = new NewsCardViewListAdapter());
-        mAdapter.refresh(DemoDataProvider.getDemoNewInfos());
+        mAdapter.refresh(Provider.getDemoNewInfos());
         mAdapter.setOnItemClickListener((itemView, item, position) -> Utils.goWeb(getContext(), item.getDetailUrl()));
     }
 

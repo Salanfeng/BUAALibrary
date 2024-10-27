@@ -9,7 +9,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.WidgetUtils;
 import com.xuexiang.xui.widget.banner.widget.banner.SimpleImageBanner;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.SimpleRecyclerAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -61,7 +61,7 @@ public class SwipeRefreshFragment extends BaseFragment {
         View headerView = getLayoutInflater().inflate(R.layout.include_head_view_banner, recyclerView, false);
 
         banner = headerView.findViewById(R.id.sib_simple_usage);
-        banner.setSource(DemoDataProvider.getBannerList())
+        banner.setSource(Provider.getBannerList())
                 .setOnItemClickListener((view, item, position) -> XToastUtils.toast("headBanner position--->" + position)).startScroll();
         recyclerView.addHeaderView(headerView);
 
@@ -92,7 +92,7 @@ public class SwipeRefreshFragment extends BaseFragment {
     private void refreshData() {
         mIndex = 0;
         mHandler.postDelayed(() -> {
-            mAdapter.refresh(DemoDataProvider.getDemoData());
+            mAdapter.refresh(Provider.getDemoData());
             if (swipeRefreshLayout != null) {
                 swipeRefreshLayout.setRefreshing(false);
             }
@@ -150,7 +150,7 @@ public class SwipeRefreshFragment extends BaseFragment {
         public void onLoadMore() {
             mIndex ++;
             mHandler.postDelayed(() -> {
-                mAdapter.loadMore(DemoDataProvider.getDemoData());
+                mAdapter.loadMore(Provider.getDemoData());
                 // 数据完更多数据，一定要掉用这个方法。
                 // 第一个参数：表示此次数据是否为空。
                 // 第二个参数：表示是否还有更多数据。

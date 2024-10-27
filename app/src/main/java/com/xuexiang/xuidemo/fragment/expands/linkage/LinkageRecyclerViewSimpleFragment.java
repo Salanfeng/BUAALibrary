@@ -24,7 +24,7 @@ import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.SnackbarUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.base.BaseFragment;
 
@@ -69,7 +69,7 @@ public class LinkageRecyclerViewSimpleFragment extends BaseFragment {
      */
     @Override
     protected void initViews() {
-        linkage.init(DemoDataProvider.getGroupItems());
+        linkage.init(Provider.getGroupItems());
         linkage.setScrollSmoothly(true);
         linkage.setDefaultOnItemBindListener(
                 (primaryHolder, primaryClickView, title) -> {

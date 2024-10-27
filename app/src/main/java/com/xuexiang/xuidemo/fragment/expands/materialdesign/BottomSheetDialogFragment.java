@@ -29,7 +29,7 @@ import com.xuexiang.xpage.config.AppPageConfig;
 import com.xuexiang.xpage.model.PageInfo;
 import com.xuexiang.xui.utils.DensityUtils;
 import com.xuexiang.xui.utils.WidgetUtils;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.SimpleRecyclerAdapter;
 import com.xuexiang.xuidemo.adapter.WidgetItemAdapter;
@@ -106,7 +106,7 @@ public class BottomSheetDialogFragment extends BaseSimpleListFragment {
         recyclerView.setLayoutManager(manager);
         SimpleRecyclerAdapter adapter = new SimpleRecyclerAdapter();
         recyclerView.setAdapter(adapter);
-        adapter.refresh(DemoDataProvider.getDemoData());
+        adapter.refresh(Provider.getDemoData());
     }
 
     private void initDialogGrid(RecyclerView recyclerView) {

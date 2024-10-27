@@ -9,7 +9,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.xuexiang.xrouter.annotation.AutoWired;
 import com.xuexiang.xrouter.launcher.XRouter;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.NewsCardViewListAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -65,7 +65,7 @@ public class SimpleListFragment extends BaseFragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         recyclerView.setAdapter(mAdapter = new NewsCardViewListAdapter());
-        mAdapter.refresh(isSpecial ? DemoDataProvider.getSpecialDemoNewInfos() : DemoDataProvider.getDemoNewInfos());
+        mAdapter.refresh(isSpecial ? Provider.getSpecialDemoNewInfos() : Provider.getDemoNewInfos());
 
         swipeRefreshLayout.setEnabled(false);
     }

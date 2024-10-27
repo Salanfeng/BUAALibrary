@@ -1,4 +1,21 @@
-package com.xuexiang.xuidemo;
+/*
+ * Copyright (C) 2024 xuexiangjys(xuexiangjys@163.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package com.xuexiang.xuidemo.server;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -19,6 +36,7 @@ import com.xuexiang.xui.widget.banner.transform.RotateUpTransformer;
 import com.xuexiang.xui.widget.banner.transform.ZoomOutSlideTransformer;
 import com.xuexiang.xui.widget.banner.widget.banner.BannerItem;
 import com.xuexiang.xui.widget.imageview.nine.NineGridImageView;
+import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.entity.NewInfo;
 import com.xuexiang.xuidemo.adapter.entity.StickyItem;
 import com.xuexiang.xuidemo.fragment.components.imageview.preview.ImageViewInfo;
@@ -41,7 +59,7 @@ import java.util.List;
  * @author xuexiang
  * @since 2018/11/23 下午5:52
  */
-public class DemoDataProvider {
+public class Provider {
 
     public static String[] titles = new String[]{
             "伪装者:胡歌演绎'痞子特工'",
@@ -417,7 +435,7 @@ public class DemoDataProvider {
     public static List<StickyItem> getStickyDemoData() {
         List<StickyItem> list = new ArrayList<>();
         List<StickyItem> temp = new ArrayList<>();
-        List<NewInfo> news = DemoDataProvider.getDemoNewInfos();
+        List<NewInfo> news = Provider.getDemoNewInfos();
         for (NewInfo newInfo : news) {
             temp.add(new StickyItem(newInfo));
         }

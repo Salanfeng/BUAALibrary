@@ -29,7 +29,7 @@ import com.xuexiang.xui.utils.WidgetUtils;
 import com.xuexiang.xui.widget.button.SmoothCheckBox;
 import com.xuexiang.xui.widget.imageview.ImageLoader;
 import com.xuexiang.xui.widget.imageview.RadiusImageView;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.base.broccoli.BroccoliRecyclerAdapter;
 import com.xuexiang.xuidemo.adapter.entity.NewInfo;
@@ -65,7 +65,7 @@ public class NewsListEditAdapter extends BroccoliRecyclerAdapter<NewInfo> {
     private OnAllSelectStatusChangedListener mListener;
 
     public NewsListEditAdapter(OnAllSelectStatusChangedListener listener) {
-        super(DemoDataProvider.getEmptyNewInfo());
+        super(Provider.getEmptyNewInfo());
         mListener = listener;
     }
 

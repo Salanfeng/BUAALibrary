@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.WidgetUtils;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.SimpleRecyclerAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -54,7 +54,7 @@ public class RefreshBasicFragment extends BaseFragment {
         refreshLayout.setEnableAutoLoadMore(true);
         // 下拉刷新
         refreshLayout.setOnRefreshListener(refreshLayout12 -> refreshLayout12.getLayout().postDelayed(() -> {
-            mAdapter.refresh(DemoDataProvider.getDemoData());
+            mAdapter.refresh(Provider.getDemoData());
             refreshLayout12.finishRefresh();
             refreshLayout12.resetNoMoreData();//setNoMoreData(false);
         }, 2000));
@@ -64,7 +64,7 @@ public class RefreshBasicFragment extends BaseFragment {
                 XToastUtils.toast("数据全部加载完毕");
                 refreshLayout1.finishLoadMoreWithNoMoreData();//将不会再次触发加载更多事件
             } else {
-                mAdapter.loadMore(DemoDataProvider.getDemoData());
+                mAdapter.loadMore(Provider.getDemoData());
                 refreshLayout1.finishLoadMore();
             }
         }, 2000));

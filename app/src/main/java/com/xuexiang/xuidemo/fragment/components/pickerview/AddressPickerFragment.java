@@ -24,7 +24,7 @@ import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.widget.picker.widget.OptionsPickerView;
 import com.xuexiang.xui.widget.picker.widget.builder.OptionsPickerBuilder;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.base.BaseFragment;
 import com.xuexiang.xui.utils.XToastUtils;
@@ -54,7 +54,7 @@ public class AddressPickerFragment extends BaseFragment {
 
     @Override
     protected void initArgs() {
-        loadData(DemoDataProvider.getProvinceInfos());
+        loadData(Provider.getProvinceInfos());
     }
 
     @Override

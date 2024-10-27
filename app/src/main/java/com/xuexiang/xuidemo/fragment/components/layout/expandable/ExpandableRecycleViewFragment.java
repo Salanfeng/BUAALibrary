@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.WidgetUtils;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.ExpandableListAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -54,6 +54,6 @@ public class ExpandableRecycleViewFragment extends BaseFragment {
     protected void initViews() {
         WidgetUtils.initRecyclerView(recyclerView);
 
-        recyclerView.setAdapter(new ExpandableListAdapter(recyclerView, DemoDataProvider.getDemoData1()));
+        recyclerView.setAdapter(new ExpandableListAdapter(recyclerView, Provider.getDemoData1()));
     }
 }

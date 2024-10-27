@@ -5,7 +5,7 @@ import android.view.View;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.WidgetUtils;
 import com.xuexiang.xui.widget.banner.widget.banner.SimpleImageBanner;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.SimpleRecyclerAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -46,14 +46,14 @@ public class SwipeHeadFootViewFragment extends BaseFragment {
         View headerView = getLayoutInflater().inflate(R.layout.include_head_view_banner, recyclerView, false);
 
         banner = headerView.findViewById(R.id.sib_simple_usage);
-        banner.setSource(DemoDataProvider.getBannerList())
+        banner.setSource(Provider.getBannerList())
                 .setOnItemClickListener((view, item, position) -> XToastUtils.toast("headBanner position--->" + position)).startScroll();
         recyclerView.addHeaderView(headerView);
 
         View footerView = getLayoutInflater().inflate(R.layout.include_foot_view, recyclerView, false);
         recyclerView.addFooterView(footerView);
 
-        final SimpleRecyclerAdapter adapter = new SimpleRecyclerAdapter(DemoDataProvider.getDemoData1());
+        final SimpleRecyclerAdapter adapter = new SimpleRecyclerAdapter(Provider.getDemoData1());
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener((itemView, item, position) -> {
             //需要注意的是，因为加了一个HeaderView，所以position都被自动加了1,因此获取内容时需要减1

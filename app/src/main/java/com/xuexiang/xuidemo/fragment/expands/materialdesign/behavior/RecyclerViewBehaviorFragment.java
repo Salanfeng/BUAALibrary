@@ -8,7 +8,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.adapter.recyclerview.XLinearLayoutManager;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.NewsCardViewListAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -81,7 +81,7 @@ public class RecyclerViewBehaviorFragment extends BaseFragment {
             return;
         }
         swipeRefreshLayout.postDelayed(() -> {
-            mAdapter.refresh(DemoDataProvider.getDemoNewInfos());
+            mAdapter.refresh(Provider.getDemoNewInfos());
             if (swipeRefreshLayout != null) {
                 swipeRefreshLayout.setRefreshing(false);
             }
@@ -118,7 +118,7 @@ public class RecyclerViewBehaviorFragment extends BaseFragment {
                 return;
             }
             swipeRefreshLayout.postDelayed(() -> {
-                mAdapter.loadMore(DemoDataProvider.getDemoNewInfos());
+                mAdapter.loadMore(Provider.getDemoNewInfos());
                 if (recyclerView != null) {
                     recyclerView.loadMoreFinish(false, true);
                 }

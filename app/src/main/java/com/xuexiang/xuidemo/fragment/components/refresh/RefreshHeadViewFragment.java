@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.WidgetUtils;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.RefreshHeadViewAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -45,7 +45,7 @@ public class RefreshHeadViewFragment extends BaseFragment {
     protected void initViews() {
         WidgetUtils.initRecyclerView(recyclerView);
 
-        recyclerView.setAdapter(mAdapter = new RefreshHeadViewAdapter(DemoDataProvider.getBannerList()));
+        recyclerView.setAdapter(mAdapter = new RefreshHeadViewAdapter(Provider.getBannerList()));
     }
 
     @Override

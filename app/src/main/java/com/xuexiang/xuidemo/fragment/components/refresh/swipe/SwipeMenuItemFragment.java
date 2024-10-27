@@ -9,7 +9,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.WidgetUtils;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.SimpleRecyclerAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -135,7 +135,7 @@ public class SwipeMenuItemFragment extends BaseFragment {
 
     private void loadData() {
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            mAdapter.refresh(DemoDataProvider.getDemoData());
+            mAdapter.refresh(Provider.getDemoData());
             if (refreshLayout != null) {
                 refreshLayout.setRefreshing(false);
             }

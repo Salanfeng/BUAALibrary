@@ -29,7 +29,7 @@ import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.adapter.recyclerview.XLinearLayoutManager;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.NineGridRecycleAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -129,9 +129,9 @@ public class NineGridImageViewFragment extends BaseFragment {
 
     private List<List<NineGridInfo>> getMediaRes() {
         if (mIsVideo) {
-            return DemoDataProvider.sNineGridVideos;
+            return Provider.sNineGridVideos;
         } else {
-            return DemoDataProvider.sNineGridPics;
+            return Provider.sNineGridPics;
         }
     }
 }

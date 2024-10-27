@@ -7,7 +7,7 @@ import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
 import com.xuexiang.xui.widget.popupwindow.popup.XUISimpleExpandablePopup;
 import com.xuexiang.xui.widget.popupwindow.popup.XUISimplePopup;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.base.BaseFragment;
 import com.xuexiang.xui.utils.XToastUtils;
@@ -63,19 +63,19 @@ public class PopupWindowStyleFragment extends BaseFragment {
     }
 
     private void initListPopup() {
-        mListPopup = new XUISimplePopup(getContext(), DemoDataProvider.dpiItems)
+        mListPopup = new XUISimplePopup(getContext(), Provider.dpiItems)
                 .create(DensityUtils.dip2px(getContext(), 170), (adapter, item, position) -> XToastUtils.toast(item.getTitle().toString()))
                 .setHasDivider(true);
     }
 
     private void initExpandableListPopup() {
-        mExpandableListPopup = new XUISimpleExpandablePopup(getContext(), DemoDataProvider.expandableItems)
+        mExpandableListPopup = new XUISimpleExpandablePopup(getContext(), Provider.expandableItems)
                 .create(DensityUtils.dip2px(getContext(), 200), DensityUtils.dip2px(getContext(), 200))
                 .setOnExpandableItemClickListener(false, (adapter, group, groupPosition, childPosition) -> XToastUtils.toast(group.getChildItem(childPosition).getTitle()));
     }
 
     private void initMenuPopup() {
-        mMenuPopup = new XUISimplePopup(getContext(), DemoDataProvider.menuItems)
+        mMenuPopup = new XUISimplePopup(getContext(), Provider.menuItems)
                 .create((adapter, item, position) -> XToastUtils.toast(item.getTitle().toString()));
     }
 

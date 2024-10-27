@@ -30,7 +30,7 @@ import com.xuexiang.xui.utils.ViewUtils;
 import com.xuexiang.xui.utils.WidgetUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
 import com.xuexiang.xui.widget.button.SmoothCheckBox;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.base.BaseFragment;
 import com.xuexiang.xuidemo.utils.Utils;
@@ -105,12 +105,12 @@ public class NewsListEditFragment extends BaseFragment {
     protected void initListeners() {
         //下拉刷新
         refreshLayout.setOnRefreshListener(refreshLayout -> refreshLayout.getLayout().postDelayed(() -> {
-            mAdapter.refresh(DemoDataProvider.getDemoNewInfos());
+            mAdapter.refresh(Provider.getDemoNewInfos());
             refreshLayout.finishRefresh();
         }, 1000));
         //上拉加载
         refreshLayout.setOnLoadMoreListener(refreshLayout -> refreshLayout.getLayout().postDelayed(() -> {
-            mAdapter.loadMore(DemoDataProvider.getDemoNewInfos());
+            mAdapter.loadMore(Provider.getDemoNewInfos());
             refreshLayout.finishLoadMore();
         }, 1000));
         refreshLayout.autoRefresh();//第一次进入触发自动刷新，演示效果

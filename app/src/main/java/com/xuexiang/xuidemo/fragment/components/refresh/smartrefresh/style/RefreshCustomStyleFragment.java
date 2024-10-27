@@ -25,7 +25,7 @@ import com.xuexiang.rxutil2.rxjava.DisposablePool;
 import com.xuexiang.rxutil2.rxjava.RxJavaUtils;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.WidgetUtils;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.SimpleRecyclerAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -74,7 +74,7 @@ public class RefreshCustomStyleFragment extends BaseFragment {
     protected void initListeners() {
         mRefreshLayout.setOnRefreshListener(refreshLayout -> handleRefresh());
         mRefreshLayout.setOnLoadMoreListener(refreshLayout -> refreshLayout.getLayout().postDelayed(() -> {
-            mAdapter.loadMore(DemoDataProvider.getDemoData());
+            mAdapter.loadMore(Provider.getDemoData());
             refreshLayout.finishLoadMore();
         }, 2000));
         mRefreshLayout.autoRefresh();//第一次进入触发自动刷新，演示效果
@@ -90,7 +90,7 @@ public class RefreshCustomStyleFragment extends BaseFragment {
                     if (progress <= 100) {
                         updateProgress(progress++);
                     } else {
-                        mAdapter.refresh(DemoDataProvider.getDemoData());
+                        mAdapter.refresh(Provider.getDemoData());
                         if (mRefreshLayout != null) {
                             mRefreshLayout.finishRefresh(true);
                         }

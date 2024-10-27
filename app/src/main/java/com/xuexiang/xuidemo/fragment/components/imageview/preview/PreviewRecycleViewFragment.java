@@ -34,7 +34,7 @@ import com.xuexiang.xui.adapter.recyclerview.RecyclerViewHolder;
 import com.xuexiang.xui.utils.DensityUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
 import com.xuexiang.xui.widget.imageview.preview.PreviewBuilder;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.PreviewRecycleAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -168,9 +168,9 @@ public class PreviewRecycleViewFragment extends BaseFragment {
 
     private List<List<ImageViewInfo>> getMediaRes() {
         if (mIsVideo) {
-            return DemoDataProvider.sVideos;
+            return Provider.sVideos;
         } else {
-            return DemoDataProvider.sPics;
+            return Provider.sPics;
         }
     }
 }

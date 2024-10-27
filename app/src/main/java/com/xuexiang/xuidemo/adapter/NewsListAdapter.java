@@ -3,7 +3,7 @@ package com.xuexiang.xuidemo.adapter;
 import com.xuexiang.xui.adapter.recyclerview.RecyclerViewHolder;
 import com.xuexiang.xui.widget.imageview.ImageLoader;
 import com.xuexiang.xui.widget.imageview.RadiusImageView;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.base.broccoli.BroccoliRecyclerAdapter;
 import com.xuexiang.xuidemo.adapter.entity.NewInfo;
@@ -22,7 +22,7 @@ public class NewsListAdapter extends BroccoliRecyclerAdapter<NewInfo> {
     private boolean mIsAnim;
 
     public NewsListAdapter(boolean isAnim) {
-        super(DemoDataProvider.getEmptyNewInfo());
+        super(Provider.getEmptyNewInfo());
         mIsAnim = isAnim;
     }
 

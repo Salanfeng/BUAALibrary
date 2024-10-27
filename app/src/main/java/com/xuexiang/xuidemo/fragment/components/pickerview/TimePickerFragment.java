@@ -29,7 +29,7 @@ import com.xuexiang.xui.widget.picker.widget.TimePickerView;
 import com.xuexiang.xui.widget.picker.widget.builder.OptionsPickerBuilder;
 import com.xuexiang.xui.widget.picker.widget.builder.TimePickerBuilder;
 import com.xuexiang.xui.widget.picker.widget.configure.TimePickerType;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.base.BaseFragment;
 import com.xuexiang.xui.utils.XToastUtils;
@@ -140,7 +140,7 @@ public class TimePickerFragment extends BaseFragment {
 
     private void showTimePeriodPicker() {
         if (mTimeOption == null) {
-            mTimeOption = DemoDataProvider.getTimePeriod(15);
+            mTimeOption = Provider.getTimePeriod(15);
         }
 
         //8点
@@ -159,11 +159,11 @@ public class TimePickerFragment extends BaseFragment {
     private void showTimePeriodPicker1() {
         if (mTimeOption1 == null) {
             mTimeOption1 = new String[5][];
-            mTimeOption1[0] = DemoDataProvider.getTimePeriod(0, 6, 15);
-            mTimeOption1[1] = DemoDataProvider.getTimePeriod(6, 6, 15);
-            mTimeOption1[2] = DemoDataProvider.getTimePeriod(12, 1, 15);
-            mTimeOption1[3] = DemoDataProvider.getTimePeriod(1, 5, 15);
-            mTimeOption1[4] = DemoDataProvider.getTimePeriod(6, 6, 15);
+            mTimeOption1[0] = Provider.getTimePeriod(0, 6, 15);
+            mTimeOption1[1] = Provider.getTimePeriod(6, 6, 15);
+            mTimeOption1[2] = Provider.getTimePeriod(12, 1, 15);
+            mTimeOption1[3] = Provider.getTimePeriod(1, 5, 15);
+            mTimeOption1[4] = Provider.getTimePeriod(6, 6, 15);
         }
         String[] option = new String[]{"凌晨", "上午", "中午", "下午", "晚上"};
         //8点
@@ -182,7 +182,7 @@ public class TimePickerFragment extends BaseFragment {
 
     private void showTimePeriodPicker2() {
         if (mTimeOption == null) {
-            mTimeOption = DemoDataProvider.getTimePeriod(15);
+            mTimeOption = Provider.getTimePeriod(15);
         }
 
         //8点

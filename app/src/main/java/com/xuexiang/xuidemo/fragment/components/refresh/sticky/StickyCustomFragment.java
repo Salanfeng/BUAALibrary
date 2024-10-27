@@ -30,7 +30,7 @@ import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.adapter.recyclerview.DividerItemDecoration;
 import com.xuexiang.xui.adapter.recyclerview.XLinearLayoutManager;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.StickyListAdapter;
 import com.xuexiang.xuidemo.adapter.entity.StickyItem;
@@ -78,7 +78,7 @@ public class StickyCustomFragment extends BaseFragment {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), VERTICAL, 0));
         recyclerView.setAdapter(mAdapter = new StickyListAdapter());
-        mAdapter.refresh(DemoDataProvider.getStickyDemoData());
+        mAdapter.refresh(Provider.getStickyDemoData());
 
         if (mAdapter.getItem(mFirstVisiblePosition).isHeadSticky()) {
             tvTitle.setText(mAdapter.getItem(mFirstVisiblePosition).getHeadTitle());

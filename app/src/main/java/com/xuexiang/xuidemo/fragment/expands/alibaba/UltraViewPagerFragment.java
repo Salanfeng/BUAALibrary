@@ -26,7 +26,7 @@ import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.DensityUtils;
 import com.xuexiang.xui.utils.ThemeUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.UltraPagerAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -55,7 +55,7 @@ public class UltraViewPagerFragment extends BaseFragment {
     protected void initViews() {
         ultraViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
         float scale = 0.5625F;
-        UltraPagerAdapter adapter = new UltraPagerAdapter(getContext(), DemoDataProvider.getBannerList(), scale);
+        UltraPagerAdapter adapter = new UltraPagerAdapter(getContext(), Provider.getBannerList(), scale);
         ultraViewPager.setAdapter(adapter);
         ultraViewPager.setMaxHeight((int) (ScreenUtils.getScreenWidth() * scale));
         //指示器

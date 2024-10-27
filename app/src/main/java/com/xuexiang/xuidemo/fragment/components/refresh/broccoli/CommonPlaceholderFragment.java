@@ -14,7 +14,7 @@ import com.xuexiang.xui.utils.DensityUtils;
 import com.xuexiang.xui.utils.ThemeUtils;
 import com.xuexiang.xui.utils.WidgetUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.adapter.NewsListAdapter;
 import com.xuexiang.xuidemo.base.BaseFragment;
@@ -73,7 +73,7 @@ public class CommonPlaceholderFragment extends BaseFragment {
             @Override
             public void onLoadMore(@NonNull final RefreshLayout refreshLayout) {
                 refreshLayout.getLayout().postDelayed(() -> {
-                    mNewsListAdapter.loadMore(DemoDataProvider.getDemoNewInfos());
+                    mNewsListAdapter.loadMore(Provider.getDemoNewInfos());
                     refreshLayout.finishLoadMore();
                 }, 1000);
             }
@@ -81,7 +81,7 @@ public class CommonPlaceholderFragment extends BaseFragment {
             @Override
             public void onRefresh(@NonNull final RefreshLayout refreshLayout) {
                 refreshLayout.getLayout().postDelayed(() -> {
-                    mNewsListAdapter.refresh(DemoDataProvider.getDemoNewInfos());
+                    mNewsListAdapter.refresh(Provider.getDemoNewInfos());
                     refreshLayout.finishRefresh();
                 }, 3000);
             }

@@ -30,7 +30,7 @@ import com.xuexiang.xui.widget.banner.widget.banner.SimpleImageBanner;
 import com.xuexiang.xui.widget.banner.widget.banner.SimpleTextBanner;
 import com.xuexiang.xui.widget.banner.widget.banner.base.BaseBanner;
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.base.BaseFragment;
 import com.xuexiang.xui.utils.XToastUtils;
@@ -95,7 +95,7 @@ public class ViewPagerBannerFragment extends BaseFragment implements BaseBanner.
 
     @Override
     protected void initViews() {
-        mData = DemoDataProvider.getBannerList();
+        mData = Provider.getBannerList();
         sib_simple_usage();
         sib_the_most_comlex_usage();
         sib_res();
@@ -261,7 +261,7 @@ public class ViewPagerBannerFragment extends BaseFragment implements BaseBanner.
     private void stb() {
 
         List<String> titles = new ArrayList<>();
-        Collections.addAll(titles, DemoDataProvider.titles);
+        Collections.addAll(titles, Provider.titles);
         stb
                 .setSource(titles)
                 .setOnItemClickListener((view, item, position) -> XToastUtils.toast("position--->" + position))
@@ -272,7 +272,7 @@ public class ViewPagerBannerFragment extends BaseFragment implements BaseBanner.
     private void showSelectDialog(final boolean isSimpleImageBanner) {
 
         List<String> itemList = new ArrayList<>();
-        for (Class<?> c : DemoDataProvider.transformers) {
+        for (Class<?> c : Provider.transformers) {
             itemList.add(c.getSimpleName());
         }
         final String[] contents = new String[itemList.size()];

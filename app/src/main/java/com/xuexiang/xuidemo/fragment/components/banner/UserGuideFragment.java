@@ -8,7 +8,7 @@ import com.xuexiang.xrouter.launcher.XRouter;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
 import com.xuexiang.xui.widget.banner.anim.select.ZoomInEnter;
 import com.xuexiang.xui.widget.banner.widget.banner.SimpleGuideBanner;
-import com.xuexiang.xuidemo.DemoDataProvider;
+import com.xuexiang.xuidemo.server.Provider;
 import com.xuexiang.xuidemo.R;
 import com.xuexiang.xuidemo.base.BaseFragment;
 
@@ -40,10 +40,10 @@ public class UserGuideFragment extends BaseFragment {
     protected void initArgs() {
         XRouter.getInstance().inject(this);
 
-        if (position >= 0 && position <= DemoDataProvider.transformers.length - 1) {
-            transformerClass = DemoDataProvider.transformers[position];
+        if (position >= 0 && position <= Provider.transformers.length - 1) {
+            transformerClass = Provider.transformers[position];
         } else {
-            transformerClass = DemoDataProvider.transformers[0];
+            transformerClass = Provider.transformers[0];
         }
     }
 
@@ -75,7 +75,7 @@ public class UserGuideFragment extends BaseFragment {
                 .setSelectAnimClass(ZoomInEnter.class)
                 .setTransformerClass(transformerClass)
                 .barPadding(0, 10, 0, 10)
-                .setSource(DemoDataProvider.getUserGuides())
+                .setSource(Provider.getUserGuides())
                 .startScroll();
 
         sgb.setOnJumpClickListener(this::popToBack);
