@@ -11,9 +11,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Library {
     ArrayList<Book> books;
+    HashMap<String, ArrayList<Integer>> tagBooks;
 
     public Library() {
         books = new ArrayList<>();
@@ -41,7 +43,13 @@ public class Library {
                 String comment = bookJson.getString("comment");
                 String score = bookJson.getString("score");
                 int pages = bookJson.getIntValue("pages");
-
+                if (tagBooks.containsKey(subTag)) {
+                    tagBooks.get(subTag).add(id);
+                } else {
+                    ArrayList<Integer> ids = new ArrayList<>();
+                    ids.add(id);
+                    tagBooks.put(subTag, ids);
+                }
                 Book book = new Book(id, name, url, img, baseTag, subTag, writer, nation, comment, score, pages, 10);
                 books.add(book);
             }
@@ -52,5 +60,9 @@ public class Library {
 
     public ArrayList<Book> getBooks() {
         return books;
+    }
+
+    public Book getBookById(int id) {
+        return books.get(id);
     }
 }

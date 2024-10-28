@@ -68,6 +68,10 @@ public class Book {
             }
             return false;
         }
+
+        public int getId() {
+            return id;
+        }
     }
 
 
