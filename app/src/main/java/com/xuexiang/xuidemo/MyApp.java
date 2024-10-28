@@ -8,6 +8,7 @@ import androidx.multidex.MultiDex;
 import com.xuexiang.xormlite.annotation.DataBase;
 import com.xuexiang.xormlite.enums.DataBaseType;
 import com.xuexiang.xtask.XTask;
+import com.xuexiang.xuidemo.server.Test;
 import com.xuexiang.xuidemo.utils.task.AsyncInitTask;
 import com.xuexiang.xuidemo.utils.task.MainInitTask;
 
@@ -31,6 +32,7 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //Test.main();
         XTask.debug(MyApp.isDebug());
         XTask.getTaskChain()
                 .addTask(new MainInitTask(this))
